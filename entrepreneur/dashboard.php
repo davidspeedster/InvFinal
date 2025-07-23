@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'entrepreneur') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'entrepreneur') {
     header("Location: ../auth/login.php");
     exit;
 }
@@ -8,6 +8,8 @@ require '../db.php';
 
 // Stats for this entrepreneur
 $myId = new MongoDB\BSON\ObjectId($_SESSION['user_id']);
+$user = $db->users->findOne(['_id' => new MongoDB\BSON\ObjectId($_SESSION['user_id'])]);
+$username = $user['username'] ?? '';
 $totalProposals = $db->investments->countDocuments(['user_id' => $myId]);
 $approved = $db->investments->countDocuments(['user_id' => $myId, 'status' => 'approved']);
 $pending = $db->investments->countDocuments(['user_id' => $myId, 'status' => 'pending']);
@@ -49,7 +51,7 @@ $rejected = $db->investments->countDocuments(['user_id' => $myId, 'status' => 'r
 <body>
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="welcome">Hello, <?= htmlspecialchars($_SESSION['user_name']) ?></h1>
+            <h1 class="welcome">Hello, <?= htmlspecialchars($username) ?></h1>
             <a href="../auth/logout.php" class="btn btn-danger">Logout</a>
         </div>
         <div class="row g-4 mb-4">

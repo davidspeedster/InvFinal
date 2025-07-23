@@ -1,6 +1,6 @@
 <?php
 require '../db.php'; session_start();
-if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'investor') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'investor') {
     header("Location: ../auth/login.php"); exit;
 }
 $inv = $db->investments->findOne(['_id'=>new MongoDB\BSON\ObjectId($_GET['id'])]);

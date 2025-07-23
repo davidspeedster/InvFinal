@@ -1,6 +1,35 @@
+<title><?= isset($page_title) ? $page_title : 'InvestHub' ?></title>
+<?php
+// ...rest of header...
+?>
+<!-- header.php -->
 <!DOCTYPE html>
 <html>
-<header class="main-header header-style-two">
+
+<head>
+    <meta charset="utf-8">
+    <title>InvestHub</title>
+    <!-- Stylesheets -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="assets/css/color-switcher-design.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        
+
+        <!-- Main Header -->
+        <header class="main-header header-style-two">
 
             <!-- Header Upper -->
             <div class="header-upper">
@@ -42,18 +71,27 @@
                             <div class="outer-box d-flex align-items-center flex-wrap">
 
                                 <!-- Button Box with Dropdown -->
-                                <div class="header_button-box dropdown">
-                                    <a href="#" class="theme-btn btn-style-one dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding:0;">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Sign In</span>
-                                            <span class="text-two">Sign In</span>
-                                        </span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="auth/login.php">Login</a></li>
-                                        <li><a class="dropdown-item" href="auth/register.php">Register</a></li>
-                                    </ul>
+                                <!-- Make sure Bootstrap 5 CSS & JS are loaded! -->
+                                <div class="header_button-box">
+                                    <div class="dropdown">
+                                        <button class="btn theme-btn dropdown-toggle px-4 py-2" type="button" id="signinDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight:600; border-radius:30px;">
+                                            <i class="bi bi-person-circle me-2"></i>Sign In
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end shadow rounded-3 mt-2" aria-labelledby="signinDropdown" style="min-width:170px;">
+                                            <li>
+                                                <a class="dropdown-item py-2" href="auth/login.php">
+                                                    <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item py-2" href="auth/register.php">
+                                                    <i class="bi bi-person-plus me-2"></i>Register
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+
 
                                 <!-- Mobile Navigation Toggler -->
                                 <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
@@ -78,29 +116,7 @@
             <!-- End Mobile Menu -->
 
         </header>
-        <!-- Scripts -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/parallax.min.js"></script>
-    <script src="assets/js/tilt.jquery.min.js"></script>
-    <script src="assets/js/jquery.paroller.min.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/backtotop.js"></script>
-    <script src="assets/js/odometer.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/SplitText.min.js"></script>
-    <script src="assets/js/ScrollTrigger.min.js"></script>
-    <script src="assets/js/ScrollToPlugin.min.js"></script>
-    <script src="assets/js/ScrollSmoother.min.js"></script>
-    <script src="assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/nav-tool.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/jquery.marquee.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/color-settings.js"></script>
-        </html>
+
+</body>
+
+</html>
