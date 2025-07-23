@@ -148,7 +148,7 @@
                                         <div class="slider-two_options d-flex align-items-center flex-wrap">
                                             <!-- Button Box -->
                                             <div class="slider-two_button">
-                                                <a href="investment.html" class="theme-btn btn-style-two">
+                                                <a href="investment.php" class="theme-btn btn-style-two">
                                                     <span class="btn-wrap">
                                                         <span class="text-one">Invest Now</span>
                                                         <span class="text-two">Invest Now</span>
@@ -190,7 +190,7 @@
                                         <div class="slider-two_options d-flex align-items-center flex-wrap">
                                             <!-- Button Box -->
                                             <div class="slider-two_button">
-                                                <a href="investment.html" class="theme-btn btn-style-two">
+                                                <a href="investment.php" class="theme-btn btn-style-two">
                                                     <span class="btn-wrap">
                                                         <span class="text-one"> Investments</span>
                                                         <span class="text-two"> Investments</span>
@@ -232,7 +232,7 @@
                                         <div class="slider-two_options d-flex align-items-center flex-wrap">
                                             <!-- Button Box -->
                                             <div class="slider-two_button">
-                                                <a href="investment.html" class="theme-btn btn-style-two">
+                                                <a href="investment.php" class="theme-btn btn-style-two">
                                                     <span class="btn-wrap">
                                                         <span class="text-one"> Investments</span>
                                                         <span class="text-two"> Investments</span>
@@ -273,10 +273,10 @@
                                 <div class="service-block_three-icon">
                                     <img src="assets/images/icons/project-management.png" alt="" />
                                 </div>
-                                <h4 class="service-block_three-heading"><a href="investment-listed-1.html">Technology</a></h4>
+                                <h4 class="service-block_three-heading"><a href="investment-listed-1.php">Technology</a></h4>
                             </div>
                             <div class="service-block_three-text">Explore a curated selection of cutting-edge technology startups and businesses seeking investment. From AI and software to hardware and digital platforms, these ventures are shaping the future — and looking for visionary partners to grow with.</div>
-                            <a class="service-block_three-more" href="investment-listed-1.html"><span>more</span><i class="flaticon-arrow"></i></a>
+                            <a class="service-block_three-more" href="investment-listed-1.php"><span>more</span><i class="flaticon-arrow"></i></a>
                         </div>
                     </div>
 
@@ -287,10 +287,10 @@
                                 <div class="service-block_three-icon">
                                     <img src="assets/images/icons/agriculture.png" alt="" />
                                 </div>
-                                <h4 class="service-block_three-heading"><a href="investment-listed-2.html">Agriculture</a></h4>
+                                <h4 class="service-block_three-heading"><a href="investment-listed-2.php">Agriculture</a></h4>
                             </div>
                             <div class="service-block_three-text">Explore a curated selection of forward-thinking agriculture startups and businesses seeking investment. From sustainable farming and agritech to food systems and supply chains, these ventures are transforming the industry — and looking for visionary partners to grow with.</div>
-                            <a class="service-block_three-more" href="investment-listed-2.html"><span>more</span><i class="flaticon-arrow"></i></a>
+                            <a class="service-block_three-more" href="investment-listed-2.php"><span>more</span><i class="flaticon-arrow"></i></a>
                         </div>
                     </div>
 
@@ -301,10 +301,10 @@
                                 <div class="service-block_three-icon">
                                     <img src="assets/images/icons/construction.png" alt="" />
                                 </div>
-                                <h4 class="service-block_three-heading"><a href="investment-listed-3.html">Construction</a></h4>
+                                <h4 class="service-block_three-heading"><a href="investment-listed-3.php">Construction</a></h4>
                             </div>
                             <div class="service-block_three-text">Explore a curated selection of innovative construction startups and businesses seeking investment. From smart infrastructure and sustainable materials to modern building solutions, these ventures are reshaping skylines — and looking for visionary partners to grow with.</div>
-                            <a class="service-block_three-more" href="investment-listed-3.html"><span>more</span><i class="flaticon-arrow"></i></a>
+                            <a class="service-block_three-more" href="investment-listed-3.php"><span>more</span><i class="flaticon-arrow"></i></a>
                         </div>
                     </div>
 
@@ -371,7 +371,7 @@
 
                             <!-- Button Box -->
                             <div class="about-two_button">
-                                <a href="about.html" class="theme-btn btn-style-one">
+                                <a href="about.php" class="theme-btn btn-style-one">
                                     <span class="btn-wrap">
                                         <span class="text-one">About Us</span>
                                         <span class="text-two">About Us</span>
@@ -559,7 +559,7 @@
                             <div class="cta-two_text">Get big results for your small business.</div>
                             <!-- Button Box -->
                             <div class="cta-two_button">
-                                <a href="contact.html" class="theme-btn btn-style-one">
+                                <a href="contact.php" class="theme-btn btn-style-one">
                                     <span class="btn-wrap">
                                         <span class="text-one">Explore</span>
                                         <span class="text-two">Explore</span>
@@ -601,7 +601,7 @@
                                     <!-- Footer Column -->
                                     <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                         <div class="footer-widget logo-widget">
-                                            <div class="footer-logo"><a href="index.html">
+                                            <div class="footer-logo"><a href="index.php">
                                                     <h5>InvestHub</h5>
                                                 </a></div>
                                         </div>
@@ -612,9 +612,9 @@
                                         <div class="footer-widget links-widget">
                                             <h5 class="footer-title">Company</h5>
                                             <ul class="footer-list">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About us</a></li>
-                                                <li><a href="investment.html">Investment</a></li>
+                                                <li><a href="index.php">Home</a></li>
+                                                <li><a href="about.php">About us</a></li>
+                                                <li><a href="investment.php">Investment</a></li>
                                                 <li><a href="#">Privacy Policy</a></li>
                                             </ul>
                                         </div>
@@ -632,10 +632,10 @@
                                         <div class="footer-widget links-widget">
                                             <h5 class="footer-title">Links</h5>
                                             <ul class="footer-list">
-                                                <li><a href="faq.html">Faq’s</a></li>
-                                                <li><a href="about.html">Meet our team</a></li>
-                                                <li><a href="blog.html">Latest news</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="faq.php">Faq’s</a></li>
+                                                <li><a href="about.php">Meet our team</a></li>
+                                                <li><a href="blog.php">Latest news</a></li>
+                                                <li><a href="contact.php">Contact</a></li>
                                             </ul>
                                         </div>
                                     </div>
