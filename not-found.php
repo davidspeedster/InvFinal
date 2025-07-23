@@ -1,0 +1,1 @@
+<!DOCTYPE html><html><head><title>Missing</title></head><body><h1>$php</h1><p>Static file placeholder.</p></body></html>
