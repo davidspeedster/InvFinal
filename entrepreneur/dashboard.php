@@ -48,7 +48,39 @@ $rejected = $db->investments->countDocuments(['user_id' => $myId, 'status' => 'r
     </style>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
+    <header class="dashboard-header py-2 mb-3 sticky-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a href="dashboard.php" class="d-flex align-items-center text-decoration-none">
+                <img src="../assets/images/favicon.png" style="width:32px;height:32px;" class="me-2" alt="InvestHub">
+                <span class="fw-bold" style="font-size:1.3rem;color:#32429a;">InvestHub</span>
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="view-submissions.php">My Proposals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
+                    id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../assets/images/resource/user.png" alt="profile" class="rounded-circle" style="width:34px;height:34px;">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-2" aria-labelledby="profileDropdown">
+                    <li><a class="dropdown-item" href="profile.php"><i class="bi bi-person me-2"></i>Manage Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <form method="post" action="../auth/logout.php" class="d-inline">
+                            <button class="dropdown-item text-danger" type="submit"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="welcome">Hello, <?= htmlspecialchars($username) ?></h1>
@@ -124,6 +156,16 @@ $rejected = $db->investments->countDocuments(['user_id' => $myId, 'status' => 'r
         </div>
     </div>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<footer class="dashboard-footer mt-auto py-3 bg-light border-top" style="font-size: 0.98rem;">
+    <div class="container text-center text-muted">
+        <span>
+            &copy; <?= date('Y') ?> <b>InvestHub</b>. All rights reserved.
+        </span>
+
+    </div>
+</footer>
 
 </html>

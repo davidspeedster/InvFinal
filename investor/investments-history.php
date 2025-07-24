@@ -23,6 +23,7 @@ $history = $db->funds->find(
     <title>Investment History | InvestHub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    
     <link href="../assets/css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -104,22 +105,26 @@ $history = $db->funds->find(
                             $i = 1;
                             foreach ($history as $record):
                                 $investment = $db->investments->findOne(['_id' => $record['investment_id']]);
+                                $fund = $db->funds->findOne([
+                                    '_id' => $record['_id'], 
+                                    'user_id' => new MongoDB\BSON\ObjectId($user_id)
+                                ]);
                                 if (!$investment) continue;
                             ?>
                                 <tr>
                                     <td><?= $i++ ?></td>
                                     <td>
-                                        <a href="../investment-detail.php?id=<?= $investment['_id'] ?>">
-                                            <?= htmlspecialchars($investment['title']) ?>
+                                        <a href="investment-detail.php?id=<?= $investment['_id'] ?>">
+                                            <?= htmlspecialchars($investment['business_name']) ?>
                                         </a>
                                     </td>
                                     <td><?= ucfirst(htmlspecialchars($investment['sector'])) ?></td>
                                     <td><?= isset($record['created_at']) ? date('d M Y', $record['created_at']->toDateTime()->getTimestamp()) : '-' ?></td>
                                     <td>$<?= number_format($record['amount'], 2) ?></td>
                                     <td>
-                                        <span class="badge bg-<?= ($investment['status'] == 'approved') ? 'success' : (($investment['status'] == 'pending') ? 'warning' : 'secondary') ?>">
-                                            <?= ucfirst($investment['status']) ?>
-                                        </span>
+            
+                                            <?= htmlspecialchars($fund['status']) ?>
+                                    
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -144,12 +149,7 @@ $history = $db->funds->find(
             <span>
                 &copy; <?= date('Y') ?> <b>InvestHub</b>. All rights reserved.
             </span>
-            <span class="d-none d-md-inline mx-2">|</span>
-            <span class="d-none d-md-inline">
-                <a href="../about.html" class="text-muted text-decoration-none me-2">About</a>
-                <a href="../faq.html" class="text-muted text-decoration-none me-2">FAQ</a>
-                <a href="../contact.php" class="text-muted text-decoration-none">Contact Support</a>
-            </span>
+            
         </div>
     </footer>
 </body>

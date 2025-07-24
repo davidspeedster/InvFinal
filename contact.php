@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+require 'db.php'; // Make sure this connects $db to MongoDB
+
 $message = '';
 $error = '';
 
@@ -11,6 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $msg = trim($_POST['message'] ?? '');
 
   if ($username && filter_var($email, FILTER_VALIDATE_EMAIL) && $msg) {
+    // Insert into MongoDB messages collection
+    $db->messages->insertOne([
+      'name' => $username,
+      'email' => $email,
+      'message' => $msg,
+      'created_at' => new MongoDB\BSON\UTCDateTime()
+    ]);
     $message = "Thank you for contacting us! We have received your message.";
   } else {
     $error = "Please fill all fields with valid information.";

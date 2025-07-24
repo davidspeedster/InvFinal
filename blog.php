@@ -22,10 +22,8 @@ $blogs = $db->blog->find([], ['sort' => ['created_at' => -1]]);
 </head>
 
 <body>
-
   <div class="page-wrapper">
     <header class="main-header header-style-two">
-
       <!-- Header Upper -->
       <div class="header-upper">
         <div class="auto-container">
@@ -69,21 +67,9 @@ $blogs = $db->blog->find([], ['sort' => ['created_at' => -1]]);
                 <!-- Make sure Bootstrap 5 CSS & JS are loaded! -->
                 <div class="header_button-box">
                   <div class="dropdown">
-                    <button class="btn theme-btn dropdown-toggle px-4 py-2" type="button" id="signinDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight:600; border-radius:30px;">
-                      <i class="bi bi-person-circle me-2"></i>Sign In
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end shadow rounded-3 mt-2" aria-labelledby="signinDropdown" style="min-width:170px;">
-                      <li>
-                        <a class="dropdown-item py-2" href="auth/login.php">
-                          <i class="bi bi-box-arrow-in-right me-2"></i>Login
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item py-2" href="auth/register.php">
-                          <i class="bi bi-person-plus me-2"></i>Register
-                        </a>
-                      </li>
-                    </ul>
+                    <a href="auth/login.php" class="btn theme-btn dropdown-toggle px-4 py-2" type="button" id="signinDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight:600; border-radius:30px;">
+                      <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                    </a>
                   </div>
                 </div>
 
@@ -120,10 +106,6 @@ $blogs = $db->blog->find([], ['sort' => ['created_at' => -1]]);
       <div class="page-title_icons" style="background-image:url(assets/images/background/page-title_icons.png)"></div>
       <div class="auto-container">
         <h2>Blog</h2>
-        <ul class="bread-crumb clearfix">
-          <li><a href="index.php">Home</a></li>
-          <li>Blog</li>
-        </ul>
       </div>
     </section>
     <!-- End Page Title -->
@@ -155,17 +137,17 @@ $blogs = $db->blog->find([], ['sort' => ['created_at' => -1]]);
                   </a>
                 </h4>
                 <div class="news-block_two-text">
-                  <?= htmlspecialchars(mb_strimwidth($blog['content'], 0, 120, '...')) ?>
+                  <?= htmlspecialchars($blog['content'])?>
                 </div>
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                   <div class="news-block_two-author">
                     <div class="news-block_two-author_image">
-                      <img src="assets/images/resource/<?= htmlspecialchars($blog['author_image'] ?? 'author-3.png') ?>" alt="" />
+                      <img src="assets/images/resource/<?= htmlspecialchars($blog['writer'] ?? 'author-3.png') ?>" alt="" />
                     </div>
                     <span>Post By</span>
-                    <?= htmlspecialchars($blog['author'] ?? 'Unknown') ?>
+                    <?= htmlspecialchars($blog['writer'] ?? 'Unknown') ?>
                   </div>
-                  <a class="news-block_two-more" href="news-detail.php?id=<?= $blog['_id'] ?>"><span>more</span><i class="flaticon-arrow"></i></a>
+                  <a class="news-block_two-more" href="login.php?id=<?= $blog['_id'] ?>"><span>more</span><i class="flaticon-arrow"></i></a>
                 </div>
               </div>
             </div>
@@ -182,6 +164,8 @@ $blogs = $db->blog->find([], ['sort' => ['created_at' => -1]]);
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

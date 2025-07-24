@@ -1,7 +1,7 @@
 <?php
 require '../db.php';
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'investor') {
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../login.php');
     exit;
 }
@@ -70,8 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'])) {
             <nav>
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="investments-history.php">My Investments</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="profile.php">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
                 </ul>
             </nav>
             <div class="dropdown">
@@ -141,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'])) {
             <span>
                 &copy; <?= date('Y') ?> <b>InvestHub</b>. All rights reserved.
             </span>
-           
+
         </div>
     </footer>
 </body>

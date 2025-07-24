@@ -55,7 +55,7 @@ $investments = $db->investments->find(['status' => 'approved']);
     <table class="table">
       <thead>
         <tr>
-          <th>Title</th>
+          <th>Business Name</th>
           <th>Sector</th>
           <th>Needed</th>
           <th>Action</th>
@@ -64,9 +64,9 @@ $investments = $db->investments->find(['status' => 'approved']);
       <tbody>
         <?php foreach ($investments as $inv): ?>
           <tr>
-            <td><?= htmlspecialchars($inv['title']) ?></td>
+            <td><?= htmlspecialchars($inv['business_name']) ?></td>
             <td><?= htmlspecialchars($inv['sector']) ?></td>
-            <td><?= htmlspecialchars($inv['funding_needed']) ?></td>
+            <td><?= htmlspecialchars($inv['requested_amount']) ?></td>
             <td>
               <a href="investment-detail.php?id=<?= $inv['_id'] ?>" class="btn btn-info btn-sm">View</a>
             </td>
@@ -80,12 +80,6 @@ $investments = $db->investments->find(['status' => 'approved']);
     <div class="container text-center text-muted">
       <span>
         &copy; <?= date('Y') ?> <b>InvestHub</b>. All rights reserved.
-      </span>
-      <span class="d-none d-md-inline mx-2">|</span>
-      <span class="d-none d-md-inline">
-        <a href="../about.html" class="text-muted text-decoration-none me-2">About</a>
-        <a href="../faq.html" class="text-muted text-decoration-none me-2">FAQ</a>
-        <a href="../contact.php" class="text-muted text-decoration-none">Contact Support</a>
       </span>
     </div>
   </footer>

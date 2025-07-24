@@ -7,7 +7,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'investor') {
 require '../db.php';
 
 // Investor's stats
-$funds = $db->funds->find(['user_id' => new MongoDB\BSON\ObjectId($_SESSION['user_id'])]);
+$funds = $db->funds->find([
+    'user_id' => new MongoDB\BSON\ObjectId($_SESSION['user_id']),
+    'status' => 'approved'
+]);
 $user = $db->users->findOne(['_id' => new MongoDB\BSON\ObjectId($_SESSION['user_id'])]);
 $username = $user['username'] ?? '';
 $totalInvested = 0;
@@ -17,6 +20,14 @@ foreach ($funds as $f) {
     $myInvestments[] = $f;
 }
 $totalCount = count($myInvestments);
+$pendingFunds = $db->funds->find([
+    'user_id' => new MongoDB\BSON\ObjectId($_SESSION['user_id']),
+    'status' => 'pending'
+]);
+$totalPending = 0;
+foreach ($pendingFunds as $pf) {
+    $totalPending += $pf['amount'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +87,7 @@ $totalCount = count($myInvestments);
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <form method="post" action="logout.php" class="d-inline">
+                        <form method="post" action="../auth/logout.php" class="d-inline">
                             <button class="dropdown-item text-danger" type="submit"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
                         </form>
                     </li>
@@ -88,27 +99,40 @@ $totalCount = count($myInvestments);
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="welcome">Hi, <?= htmlspecialchars($username) ?></h1>
-            <a href="../auth/logout.php" class="btn btn-danger">Logout</a>
+
         </div>
         <div class="row g-4 mb-4">
-            <div class="col-md-6">
-                <div class="dashboard-card bg-primary text-white p-4">
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-cash-coin icon-lg me-3"></i>
-                        <div>
-                            <h2>$<?= number_format($totalInvested, 2) ?></h2>
-                            <div>Total Invested</div>
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="dashboard-card bg-primary text-white p-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-cash-coin icon-lg me-3"></i>
+                            <div>
+                                <h2>$<?= number_format($totalInvested, 2) ?></h2>
+                                <div>Total Approved Invested</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="dashboard-card bg-success text-white p-4">
-                    <div class="d-flex align-items-center">
-                        <i class="bi bi-briefcase icon-lg me-3"></i>
-                        <div>
-                            <h2><?= $totalCount ?></h2>
-                            <div>Investments</div>
+                <div class="col-md-4">
+                    <div class="dashboard-card bg-warning text-dark p-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-hourglass-split icon-lg me-3"></i>
+                            <div>
+                                <h2>$<?= number_format($totalPending, 2) ?></h2>
+                                <div>Pending Investments</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="dashboard-card bg-success text-white p-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-briefcase icon-lg me-3"></i>
+                            <div>
+                                <h2><?= $totalCount ?></h2>
+                                <div>Approved Investments</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -145,12 +169,7 @@ $totalCount = count($myInvestments);
             <span>
                 &copy; <?= date('Y') ?> <b>InvestHub</b>. All rights reserved.
             </span>
-            <span class="d-none d-md-inline mx-2">|</span>
-            <span class="d-none d-md-inline">
-                <a href="../about.html" class="text-muted text-decoration-none me-2">About</a>
-                <a href="../faq.html" class="text-muted text-decoration-none me-2">FAQ</a>
-                <a href="../contact.php" class="text-muted text-decoration-none">Contact Support</a>
-            </span>
+
         </div>
     </footer>
 </body>
